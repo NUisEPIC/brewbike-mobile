@@ -5,12 +5,12 @@ interface IProps extends React.Props<void> {
 	platform: string
 }
 
-import Counter from './Counter'
+import LocationList from './LocationList'
 
 const App: React.StatelessComponent<IProps> = (props: IProps): JSX.Element => (
 	<View style={styles.container}>
 		<Text>{props.platform}</Text>
-		<Counter />
+		<LocationList />
 	</View>
 )
 
