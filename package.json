@@ -3,8 +3,10 @@
 	"version": "0.1.0",
 	"private": true,
 	"devDependencies": {
+		"@types/react-navigation": "^1.0.22",
 		"jest-expo": "^21.0.2",
 		"react-native-scripts": "1.5.0",
+		"react-navigation": "^1.0.0-beta.15",
 		"react-test-renderer": "16.0.0-alpha.12",
 		"watchman": "^0.1.8"
 	},

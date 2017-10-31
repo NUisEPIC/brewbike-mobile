@@ -1,26 +1,29 @@
 import * as React from 'react'
-import { Text, View, StyleSheet } from 'react-native'
+import { Platform } from 'react-native'
+import { StackNavigator } from 'react-navigation'
+
+import Locations from './Locations'
+import Location from './Location'
+
+const navigator = StackNavigator({
+	Locations: {
+		screen: Locations,
+		path: ''
+	},
+	Location: {
+		screen: Location,
+		path: 'location/:id'
+	}
+}, {
+		initialRouteName: 'Locations',
+		headerMode: 'float',
+		mode: Platform.OS === 'ios' ? 'modal' : 'card'
+	})
 
 interface IProps extends React.Props<void> {
 	platform: string
 }
 
-import LocationList from './LocationList'
-
-const App: React.StatelessComponent<IProps> = (props: IProps): JSX.Element => (
-	<View style={styles.container}>
-		<Text>{props.platform}</Text>
-		<LocationList />
-	</View>
-)
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: '#fff',
-		alignItems: 'center',
-		justifyContent: 'center'
-	}
-})
+const App: React.StatelessComponent<IProps> = (): JSX.Element => React.createElement(navigator)
 
 export default App
